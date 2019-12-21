@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<h2>Fetch</h2>
+<p>Notes here</p>
+<pre>  fetch('https://jsonplaceholder.typicode.com/postses').then(function (response) {
+  // The API call was successful!
+  if (response.ok) {
+  return response.json();
+  } else {
+  return Promise.reject(response);
+  }
+  }).then(function (data) {
+  // This is the JSON from our response
+  console.log(data);
+  }).catch(function (err) {
+  // There was an error
+  console.warn('Something went wrong.', err);
+  });</pre>
+
+
+
+
+
+
+<form>
+  <div>
+    <label for="current-password">Current Password</label>
+    <input type="password" name="current-password" id="current-password">
+  </div>
+
+  <div>
+    <label for="new-password">New Password</label>
+    <input type="password" name="new-password" id="new-password">
+  </div>
+
+  <div>
+    <label for="show-passwords">
+      <input type="checkbox" name="show-passwords" id="show-passwords">
+      Show passwords
+    </label>
+  </div>
+
+  <p>
+    <button type="submit">Change Passwords</button>
+  </p>
+</form>
+
+  <script>
+;(function(){
+
+  'use strict';
+
+var passwordElem = document.querySelector('#password');
+var inputElems = document.querySelectorAll('input[type="checkbox"]');
+
+Array.prototype.slice.call(inputElems).forEach(function(item, idx){
+  item.checked = false;
+})
+
+function clickHandler(event){
+  if (!event.target.matches('#show-password')) return;
+  (event.target.checked) ? passwordElem.setAttribute('type', 'text') : passwordElem.setAttribute('type', 'password')
+}
+
+document.addEventListener('click', clickHandler, false)
+
+var sandwiches = Array.prototype.slice.call(document.querySelectorAll('.sandwiches'));
+sandwiches.forEach(function (sandwich, index) {
+  console.log(sandwich.textContent);
+});
+
+
+
+})()
+
+  </script>
+</body>
+</html>
