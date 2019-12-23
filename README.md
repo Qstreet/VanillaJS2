@@ -1,13 +1,12 @@
 # VanillaJS Academy Notes
 
+<pre></pre>
 ; mdjs
 ; mdl
 
 <h2>CSS Selectors</h2>
-<ul>
 <p><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors">MDN Selectors Ref</a></li>
-<li><pre>var elemCarrots = document.querySelector('[data-snack="carrots"]');</pre></li>
-</ul>
+<pre>var elemCarrots = document.querySelector('[data-snack="carrots"]');</pre>
 
 <h2>NodeList and .childNodes</h2>
 <p>NodeList objects are collections of nodes, usually returned by properties such as Node.childNodes and methods such as document.querySelectorAll().</p>
@@ -40,7 +39,7 @@ console.warn('Something went wrong.', err);
 });
 </pre>
 
-`Array.forEach()` and NodeLists
+<h2>Array.forEach() and NodeLists</h2>
 
 ```javascript
 var sandwiches = Array.prototype.slice.call(
@@ -50,6 +49,57 @@ sandwiches.forEach(function(sandwich, index) {
   console.log(sandwich.textContent);
 });
 ```
+
+<h2>indexOf()</h2>
+<pre>Array.indexOf('Amos') // 3
+Array.indexOf('Andy') // -1
+</pre>
+<p>Check if elem in array exists
+<pre>
+if (sandwiches.indexOf('turkey') > -1) {
+	console.log('Make a turkey sandwich, please');
+}
+</pre>
+<pre>
+if (quotes.indexOf(data[0]) > -1) {
+			getQuote();
+			return;
+      }
+</pre>
+
+
+<h2>Shuffle</h2>
+
+```javascript
+/**
+ * Randomly shuffle an array
+ * https://stackoverflow.com/a/2450976/1293256
+ * @param  {Array} array The array to shuffle
+ * @return {String}      The first item in the shuffled array
+ */
+var shuffle = function (array) {
+
+	var currentIndex = array.length;
+	var temporaryValue, randomIndex;
+
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+
+		// And swap it with the current element.
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
+
+	return array;
+
+};
+```
+
+
 
 `matches()` _polyfill_
 
