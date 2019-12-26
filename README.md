@@ -25,19 +25,23 @@ return word.length > 0;
 
 <h2>Fetch</h2>
 <p>Notes here</p>
-<pre>
+
+```javascript
 fetch('https://jsonplaceholder.typicode.com/postses')
-.then(function (response) {
-if (response.ok) {
-return response.json();
-} else {
-return Promise.reject(response);
-}
-}).then(function (data) {
-}).catch(function (err) {
-console.warn('Something went wrong.', err);
+  .then(function (response) {
+    if (response.ok) {
+    return response.json();
+  } else {
+    return Promise.reject(response);
+  }
+  })
+  .then(function (data) {
+  })
+  .catch(function (err) {
+  console.warn('Something went wrong.', err);
 });
-</pre>
+```
+If you save a `Promoise` to a variable, you can attach `.then()` callbacks at any time and run as needed. Even AFTER the `Promise` has been resolved.
 
 <h2>Array.forEach() and NodeLists</h2>
 
